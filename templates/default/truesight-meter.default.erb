@@ -1,0 +1,16 @@
+# All non-loopback interfaces that have IP addresses and are up are monitored by default.
+# If you only want specific interfaces monitored, specify them here.
+# e.g. INTERFACES="eth0 eth1 eth3 eth4"
+INTERFACES="<%= @truesight_meter['interfaces'].join(' ') %>"
+
+# Enable periodic stats on pcap interfaces by setting this to 1
+PCAP_STATS=<%= @truesight_meter['pcap_stats'] %>
+
+# Enable promiscuous capture mode (required to see some traffic, e.g. rx multicast)
+PCAP_PROMISC=<%= @truesight_meter['pcap_promisc'] %>
+
+# Disable built-in NTP support for meter time synchronization by setting this to 1
+DISABLE_NTP=<%= @truesight_meter['disable_ntp'] %>
+
+# Enable built-in STUN support for public IP detection by setting this to 1
+ENABLE_STUN=<%= @truesight_meter['enable_stun'] %>
