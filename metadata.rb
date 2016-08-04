@@ -4,7 +4,7 @@ maintainer_email 'truesightops@bmc.com'
 license          'Apache 2.0'
 description      'Installs/Configures truesight-meter'
 long_description 'Installs/Configures truesight-meter'
-version          '0.1.0'
+version          '0.1.1'
 
 %w{ ubuntu debian rhel centos amazon scientific }.each do |os|
   supports os
