@@ -37,7 +37,7 @@ when 'rhel'
 
   yum_repository 'truesight' do
     description 'truesight'
-    baseurl "#{boundary_data('repositories')['yum']['url']}/#{version}/#{machine}/"
+    baseurl "#{truesight_data('repositories')['yum']['url']}/#{version}/#{machine}/"
     gpgkey boundary_data('repositories')['yum']['key']
     action :create
   end
@@ -48,9 +48,9 @@ when 'debian', 'ubuntu'
   end
 
   apt_repository 'truesight' do
-    uri boundary_data('repositories')['apt']['url']
+    uri truesight_data('repositories')['apt']['url']
     distribution node['lsb']['codename']
     components ['universe']
-    key boundary_data('repositories')['apt']['key']
+    key truesight_data('repositories')['apt']['key']
   end
 end

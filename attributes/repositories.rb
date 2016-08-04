@@ -18,8 +18,8 @@
 # limitations under the License.
 #
 
-default['truesight_meter']['repositories']['apt']['url'] = 'https://apt.boundary.com/ubuntu/'
-default['truesight_meter']['repositories']['apt']['key'] = 'https://apt.boundary.com/APT-GPG-KEY-Boundary'
+default['truesight_meter']['repositories']['apt']['url'] = 'https://apt.truesight.bmc.com/ubuntu/'
+default['truesight_meter']['repositories']['apt']['key'] = 'https://apt.truesight.bmc.com/APT-GPG-KEY-Truesight'
 
-default['truesight_meter']['repositories']['yum']['url'] = 'https://yum.boundary.com/centos/os'
-default['truesight_meter']['repositories']['yum']['key'] = 'https://yum.boundary.com/RPM-GPG-KEY-Boundary'
+default['truesight_meter']['repositories']['yum']['url'] = 'https://yum.truesight.bmc.com/centos/os'
+default['truesight_meter']['repositories']['yum']['key'] = 'https://yum.truesight.bmc.com/RPM-GPG-KEY-Truesight'

@@ -21,24 +21,24 @@ include Chef::DSL::DataQuery
 
 class Chef
   class Resource
-    class TrueSightMeter < Chef::Resource
+    class TruesightMeter < Chef::Resource
       identity_attr :name
 
       def initialize(name, run_context=nil)
         super
         @resource_name = :truesight_meter
-        @provider = Chef::Provider::TrueSightMeter
-        
+        @provider = Chef::Provider::TruesightMeter
+
         @action = :create
         @allowed_actions.push(:create)
         @allowed_actions.push(:delete)
-        
+
         @name = name
         @node_name = truesight_data('hostname')
         @token = truesight_data('token')
-        
+
         @is_alt = false
-        
+
         @discover_tags = truesight_data('discover_tags')
         @tags = []
 
@@ -50,7 +50,7 @@ class Chef
         if arg == nil and @conf_dir == nil
           @conf_dir = conf_dir_default
         end
-        
+
         set_or_return(:conf_dir, arg, :kind_of => [String])
       end
 
@@ -82,7 +82,7 @@ class Chef
         set_or_return(:tags, arg, :kind_of => [Array])
       end
 
-      private      
+      private
 
       def conf_dir_default
         if is_alt == true

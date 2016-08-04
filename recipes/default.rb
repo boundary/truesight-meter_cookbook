@@ -21,7 +21,7 @@
 include_recipe 'truesight-meter::dependencies'
 
 package 'truesight-meter' do
-  action boundary_data('install_type').to_sym
+  action truesight_data('install_type').to_sym
 end
 
 service 'truesight-meter' do
@@ -39,5 +39,5 @@ template '/etc/default/truesight-meter' do
   group 'root'
   mode '0644'
   notifies :restart, "service[truesight-meter]"
-  variables :boundary_meter => truesight_data_merge
+  variables :truesight_meter => truesight_data_merge
 end
