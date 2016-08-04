@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-module TrueSight
+module Truesight
   module Meter
 
     CONF_DIR = '/etc/truesight'
@@ -42,18 +42,17 @@ module TrueSight
       return false unless ::File.exists?("#{resource.conf_dir}/meter.conf")
 
       config = JSON.parse(::File.read("#{resource.conf_dir}/meter.conf"))
-      
 
-      return false unless 
-        resource.token == config['api']['token']  and
-        truesight_data('api')['hostname'] == config['api']['host'] 
+      current =
+        resource.token == config['premium_api']['token']  and
+        truesight_data('api')['hostname'] == config['premium_api']['host']
 
-      true        
+       current
     end
 
     def setup_conf_dir(resource)
       ::Dir.mkdir(resource.conf_dir) unless ::File.directory?(resource.conf_dir)
-      ::FileUtils.cp "#{TrueSight::Meter::CONF_DIR}/ca.pem", "#{resource.conf_dir}/" unless ::File.exists?("#{resource.conf_dir}/ca.pem")
+      ::FileUtils.cp "#{Truesight::Meter::CONF_DIR}/ca.pem", "#{resource.conf_dir}/" unless ::File.exists?("#{resource.conf_dir}/ca.pem")
     end
 
     def remove_conf_dir(resource)

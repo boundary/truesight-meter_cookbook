@@ -88,7 +88,7 @@ class Chef
         if is_alt == true
           "%s_%s" % [TrueSight::Meter::CONF_DIR, name]
         else
-          TrueSight::Meter::CONF_DIR
+          Truesight::Meter::CONF_DIR
         end
       end
 

@@ -1,7 +1,7 @@
 #
 # Author:: Zachary Schneider (<truesightops@bmc.com>)
 # Cookbook Name:: truesight-meter
-# Recipe:: delete
+# Recipe:: delete_config
 #
 # Copyright 2016, BMC Software
 #
@@ -18,8 +18,10 @@
 # limitations under the License.
 #
 
-include_recipe 'truesight-meter::delete_config'
+service 'truesight-meter' do
+  action [ :stop, :disable ]
+end
 
-package 'truesight-meter' do
-  action :purge
+truesight_meter "default" do
+  action :delete
 end

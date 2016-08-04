@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-include TrueSight::Meter
+include Truesight::Meter
 
 action :create do
   if meter_exists?(new_resource)
