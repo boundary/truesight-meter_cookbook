@@ -68,18 +68,17 @@ module Truesight
         "-P https://#{truesight_data('api')['hostname']}",
         "-p #{resource.token}",
         "-b #{resource.conf_dir}",
-        "-n tls://#{truesight_data('collector')['hostname']}:#{truesight_data('collector')['port']}",
         "--nodename #{resource.node_name}"
       ]
 
       if action == :create
         command.push "--tag #{resource.tags.join(',')}" unless resource.tags.empty?
 
-        if truesight_data_data('enable_stun') == 1
+        if truesight_data('enable_stun') == 1
           command.push "--enable-stun"
         end
 
-        if truesight_data_data('tls')['skip_validation'] == true
+        if truesight_data('tls')['skip_validation'] == true
           command.push "--tls-skip-validation"
         end
       end
